@@ -1,52 +1,56 @@
-package com.hogent.tictak;
+package com.hogent.tictak.model;
 
 import org.springframework.data.annotation.Id;
-
 import java.util.List;
 
-class Song {
+public class Song {
+
     @Id
-    private Long id;
+    private String id;
     private String title;
     private Note key;
     private List<Note> chords;
 
-    Song(Long id, String title, Note key, List<Note> chords) {
+    public Song(String id, String title, Note key, List<Note> chords) {
         this.id = id;
         this.title = title;
         this.key = key;
         this.chords = chords;
     }
 
-    Long getId() {
+    public Song() {
+
+    }
+
+    public String getId() {
         return id;
     }
 
-    void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    Note getKey() {
+    public Note getKey() {
         return key;
     }
 
-    void setKey(Note key) {
+    public void setKey(Note key) {
         this.key = key;
     }
 
-    List<Note> getChords() {
+    public List<Note> getChords() {
         return chords;
     }
 
-    void setChords(List<Note> chords) {
+    public void setChords(List<Note> chords) {
         this.chords = chords;
     }
 }

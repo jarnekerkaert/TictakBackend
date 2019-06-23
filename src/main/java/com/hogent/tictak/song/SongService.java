@@ -1,5 +1,6 @@
-package com.hogent.tictak;
+package com.hogent.tictak.song;
 
+import com.hogent.tictak.model.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
