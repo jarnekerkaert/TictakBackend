@@ -4,6 +4,7 @@ import com.hogent.tictak.exception.ResourceNotFoundException;
 import com.hogent.tictak.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,8 +28,8 @@ class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    User login(@RequestBody LoginModel user) {
-        log.info("LOGIN user with name: {}", user.getName());
-        return userService.login(user).orElseThrow(ResourceNotFoundException::new);
+    User login(Authentication authentication) {
+        log.info("LOGIN user with name: {}", authentication.getName());
+        return userService.findUserByName(authentication.getName()).orElseThrow(ResourceNotFoundException::new);
     }
 }

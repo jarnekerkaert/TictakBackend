@@ -30,10 +30,4 @@ class SongController {
         log.info("GET song by id: {}", id);
         return songService.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
-
-    @RequestMapping(value = "/songs", method = RequestMethod.POST)
-    void addSong(@RequestBody Song song) {
-        log.info("POST song with id: {}", song.getId());
-        songService.add(song);
-    }
 }

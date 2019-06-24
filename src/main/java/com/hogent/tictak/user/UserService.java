@@ -29,7 +29,7 @@ class UserService {
         }
     }
 
-    Optional<User> login(LoginModel user) {
-        return repository.findUserByName(user.getName());
+    Optional<User> findUserByName(String user) {
+        return repository.findUserByName(user);
     }
 }
