@@ -4,6 +4,7 @@ import com.hogent.tictak.exception.ResourceNotFoundException;
 import com.hogent.tictak.model.RegisterModel;
 import com.hogent.tictak.model.Song;
 import com.hogent.tictak.model.User;
+import com.hogent.tictak.model.UserModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -55,14 +56,21 @@ class SongController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    User register(@RequestBody RegisterModel user, Authentication authentication) {
+    UserModel register(@RequestBody RegisterModel user, Authentication authentication) {
         log.info("POST user with name: {}", user.getName());
-        return userService.register(user);
+        return convertToUserModel(userService.register(user));
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    User login(Authentication authentication) {
+    UserModel login(Authentication authentication) {
         log.info("LOGIN user with name: {}", authentication.getName());
-        return userService.findUserByName(authentication.getName()).orElseThrow(ResourceNotFoundException::new);
+        return convertToUserModel(userService.findUserByName(authentication.getName()).orElseThrow(ResourceNotFoundException::new));
+    }
+
+    private UserModel convertToUserModel(User user) {
+        return new UserModel(
+                user.getId(),
+                user.getName(),
+                user.getSongs());
     }
 }
