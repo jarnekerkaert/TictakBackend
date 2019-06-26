@@ -1,4 +1,4 @@
-package com.hogent.tictak.user;
+package com.hogent.tictak;
 
 import com.hogent.tictak.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;

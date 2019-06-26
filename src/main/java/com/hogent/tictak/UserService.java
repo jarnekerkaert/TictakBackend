@@ -1,6 +1,9 @@
-package com.hogent.tictak.user;
+package com.hogent.tictak;
 
+import com.hogent.tictak.exception.ResourceNotFoundException;
 import com.hogent.tictak.exception.UserAlreadyExistsException;
+import com.hogent.tictak.model.RegisterModel;
+import com.hogent.tictak.model.Song;
 import com.hogent.tictak.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +30,14 @@ class UserService {
         else {
             throw new UserAlreadyExistsException(user.getName());
         }
+    }
+
+    Optional<User> findById(String userId) {
+        return repository.findById(userId);
+    }
+
+    void updateUser(User user) {
+        repository.save(user);
     }
 
     Optional<User> findUserByName(String user) {

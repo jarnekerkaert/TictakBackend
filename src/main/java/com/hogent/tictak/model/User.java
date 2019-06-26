@@ -13,7 +13,7 @@ public class User {
     private String id;
     private String name;
     private String password;
-    private List<Song> songs;
+    private List<String> songs;
 
     public User(String id, String name, String password) {
         this.id = id;
@@ -22,7 +22,7 @@ public class User {
         this.songs = Collections.emptyList();
     }
 
-    public User(String id, String name, String password, List<Song> songs) {
+    public User(String id, String name, String password, List<String> songs) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -31,6 +31,10 @@ public class User {
 
     public User() {
 
+    }
+
+    public void addSong(Song song) {
+        this.songs.add(song.getId());
     }
 
     public String getId() {
@@ -57,11 +61,11 @@ public class User {
         this.password = password;
     }
 
-    public List<Song> getSongs() {
+    public List<String> getSongs() {
         return songs;
     }
 
-    public void setSongs(List<Song> songs) {
+    public void setSongs(List<String> songs) {
         this.songs = songs;
     }
 }

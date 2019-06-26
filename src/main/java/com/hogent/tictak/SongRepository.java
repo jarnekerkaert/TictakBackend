@@ -1,4 +1,4 @@
-package com.hogent.tictak.song;
+package com.hogent.tictak;
 
 
 import com.hogent.tictak.model.Song;

@@ -1,4 +1,4 @@
-package com.hogent.tictak.song;
+package com.hogent.tictak;
 
 import com.hogent.tictak.model.Song;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,8 @@ class SongService {
         return repository.findAll();
     }
 
-    void add(Song song) {
-        repository.save(song);
+    Song add(Song song) {
+        return repository.save(song);
     }
 
     Optional<Song> findById(String id) {
