@@ -40,7 +40,7 @@ class SongController {
 
     @Transactional
     @RequestMapping(value = "/user/{id}", method = RequestMethod.POST)
-    void addSongByUser(@PathVariable("id") String id, @RequestBody Song song, Authentication authentication) {
+    void addSongByUser(@PathVariable("id") String id, @RequestBody Song song) {
         log.info("POST SONG by user with id: {}", id);
         userService.findById(id)
                 .map(u -> {
@@ -56,7 +56,7 @@ class SongController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    UserModel register(@RequestBody RegisterModel user, Authentication authentication) {
+    UserModel register(@RequestBody RegisterModel user) {
         log.info("POST user with name: {}", user.getName());
         return convertToUserModel(userService.register(user));
     }
