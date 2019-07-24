@@ -7,14 +7,14 @@ public class Song {
 
     @Id
     private String id;
-    private String userName;
+    private String user;
     private String title;
     private Note key;
     private List<Note> chords;
 
-    public Song(String id, String userName, String title, Note key, List<Note> chords) {
+    public Song(String id, String user, String title, Note key, List<Note> chords) {
         this.id = id;
-        this.userName = userName;
+        this.user = user;
         this.title = title;
         this.key = key;
         this.chords = chords;
@@ -32,12 +32,12 @@ public class Song {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getTitle() {

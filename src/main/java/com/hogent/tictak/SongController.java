@@ -44,7 +44,7 @@ class SongController {
         log.info("POST SONG by user with id: {}", id);
         userService.findById(id)
                 .map(u -> {
-                    song.setUserName(u.getName());
+                    song.setUser(u.getName());
                     songService.add(song);
                     u.addSong(song);
                     userService.updateUser(u);
