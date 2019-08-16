@@ -12,4 +12,4 @@ The backend itself runs on **localhost:8080**. This is the Spring Boot default.
 This backend uses [Swagger 2](https://swagger.io/). When running the application, you can access the documentation at [http://localhost:8080/api/v2/api-docs](http://localhost:8080/api/v2/api-docs)
 
 ### Author
-* **[jarnekerkaert](https://github.com/jarnekerkaert)**
+* **[Jarne Kerkaert](https://github.com/jarnekerkaert)**
